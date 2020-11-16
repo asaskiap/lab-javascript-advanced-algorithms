@@ -1,26 +1,31 @@
 class QueueDataStructure {
-  constructor() {
-    this.queueControl = [];
-    this.MAX_SIZE = 10;
-  }
+    constructor() {
+        this.queueControl = [];
+        this.MAX_SIZE = 10;
+    }
 
-  display() {
-    // ... your code goes here
-  }
+    display() {
+        return this.queueControl;
+    }
 
-  canEnqueue() {
-    // ... your code goes here
-  }
+    canEnqueue() {
+        return this.queueControl.length < this.MAX_SIZE;
+    }
 
-  isEmpty() {
-    // ... your code goes here
-  }
+    isEmpty() {
+        return this.queueControl.length === 0;
+    }
 
-  enqueue(item) {
-    // ... your code goes here
-  }
+    enqueue(item) {
+        if (this.canEnqueue()) {
+            this.queueControl.unshift(item);
+            return this.queueControl;
+        } else return 'Queue Overflow';
+    }
 
-  dequeue() {
-    // ... your code goes here
-  }
+    dequeue() {
+        if (!this.isEmpty()) {
+            return this.queueControl.pop();
+        } else return 'Queue Underflow';
+    }
 }
